@@ -1,0 +1,19 @@
+{
+    "name": "MyOverlayImagePlugin",
+    "author": "Pakulski",
+    "views": [
+        "@Storefront",
+        "@Plugins",
+        "@MyOverlayImagePlugin"
+    ],
+    "style": [
+        "app/storefront/src/scss/overrides.scss",
+        "@MyOverlayImagePlugin/storefront/element/cms-element-my-overlay-image/cms-element-my-overlay-image.scss"
+    ],
+    "script": [
+        "@MyOverlayImagePlugin/storefront/dist/storefront/js/my-overlay-image-plugin.js"
+    ],
+    "asset": [
+        "app/storefront/dist/assets"
+    ]
+} 

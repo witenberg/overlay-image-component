@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cms-elements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/Content/Cms/Xml/elements.xsd">
+
+    <element name="my-overlay-image" type="my-overlay-image">
+        <label>My Overlay Image</label>
+        <label lang="de-DE">Mein Overlay Bild</label>
+        <config>
+            <media required="true"/>
+            <overlayPosition/>
+            <overlayText/>
+            <category/>
+            <buttonText/>
+        </config>
+    </element>
+
+    <element name="my-overlay-image-test" type="my-overlay-image-test">
+        <label>Test Overlay Image</label>
+        <config>
+            <media required="true"/>
+        </config>
+    </element>
+
+</cms-elements> 

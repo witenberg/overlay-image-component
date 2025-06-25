@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/Framework/Plugin/Schema/plugin.xsd">
+    <label lang="en-GB">My Overlay Image Block</label>
+    <label lang="de-DE">Mein Overlay Bild Block</label>
+    <description lang="en-GB">This plugin adds a custom CMS block with an image and an overlay text/button.</description>
+    <copyright>(c) Jakub</copyright>
+    <license>MIT</license>
+    <version>1.0.0</version>
+    <author>Jakub</author>
+    <oldVersions/>
+    <compatibility>
+        <shopware min-version="6.6.0" max-version="6.6.*" />
+    </compatibility>
+
+    <cms-element>
+        <name>my-overlay-image</name>
+        <label>Overlay (Text/Button)</label>
+        <component>my-overlay-image</component>
+    </cms-element>
+
+    <storefront>
+        <style>
+            <path>Resources/views/storefront/element/cms-element-my-overlay-image/cms-element-my-overlay-image.scss</path>
+        </style>
+    </storefront>
+</plugin>

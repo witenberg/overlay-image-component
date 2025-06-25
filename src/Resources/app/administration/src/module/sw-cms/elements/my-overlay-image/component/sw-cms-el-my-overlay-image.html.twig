@@ -1,0 +1,12 @@
+<div class="sw-cms-el-my-overlay-image">
+    <img v-if="mediaUrl" :src="mediaUrl" class="my-overlay-image__background" alt="Background Image">
+    <div v-else class="my-overlay-image__placeholder">
+        {{ $tc('my-overlay-image-plugin.element.preview.placeholder') }}
+    </div>
+    <div class="my-overlay-image__overlay" :class="overlayPositionClass">
+        <div v-if="overlayText" class="my-overlay-image__text" v-html="overlayText"></div>
+        <button v-if="categoryId" class="my-overlay-image__button" @click="goToCategory">
+            {{ buttonText }}
+        </button>
+    </div>
+</div>

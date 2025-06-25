@@ -1,0 +1,29 @@
+{
+    "name": "my-overlay-image-plugin/my-overlay-image-plugin",
+    "description": "A plugin to add a custom CMS block with an overlay image for Shopware 6.6.10.4",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jakub",
+            "homepage": "https://yourwebsite.com"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.6.0"
+    },
+    "type": "shopware-platform-plugin",
+    "autoload": {
+        "psr-4": {
+            "MyOverlayImagePlugin\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "MyOverlayImagePlugin\\MyOverlayImagePlugin",
+        "label": {
+            "en-GB": "My Overlay Image Block",
+            "de-DE": "Mein Overlay Bild Block",
+            "pl-PL": "Mój Overlay Image Block"
+        }
+    }
+}

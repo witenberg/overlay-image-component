@@ -1,0 +1,26 @@
+// Przygotujmy sobie jakąś ikonę do podglądu, bo na razie nie mamy obrazka tła.
+// Musisz umieścić plik `overlay_image_preview.png` w katalogu `src/Resources/public/img/` w Twoim pluginie.
+.sw-cms-preview-my-overlay-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+
+    &__placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        color: #52667a;
+        font-size: 14px;
+    }
+}
+
+.sw-cms-block-my-overlay-image {
+    width: 100%;
+    background: transparent;
+    position: relative;
+}
