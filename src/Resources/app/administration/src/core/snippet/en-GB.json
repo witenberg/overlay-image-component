@@ -15,7 +15,8 @@
                     "bottomRight": "Bottom Right"
                 },
                 "overlayTextLabel": "Overlay Text & Button (HTML allowed)",
-                "categoryLabel": "Link to Category"
+                "categoryLabel": "Link to Category",
+                "buttonStyleLabel": "Button Style"
             },
             "preview": {
                 "placeholder": "Overlay Image (No image selected)"

@@ -5,7 +5,7 @@
     </div>
     <div class="my-overlay-image__overlay" :class="overlayPositionClass">
         <div v-if="overlayText" class="my-overlay-image__text" v-html="overlayText"></div>
-        <button v-if="categoryId" class="my-overlay-image__button" @click="goToCategory">
+        <button v-if="categoryId" class="my-overlay-image__button" :class="buttonClass" @click="goToCategory">
             {{ buttonText }}
         </button>
     </div>

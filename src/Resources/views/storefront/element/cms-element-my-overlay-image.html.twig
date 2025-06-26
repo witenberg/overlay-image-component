@@ -13,18 +13,20 @@
             </div>
         {% endif %}
 
-        {% if element.config.overlayText.value or element.config.category.value %}
-            <div class="cms-element-my-overlay-image__overlay cms-element-my-overlay-image__overlay--{{ element.config.overlayPosition.value|default('center') }}">
-                {% if element.config.overlayText.value %}
+        {% if element.data.overlayText or element.data.category %}
+            <div class="cms-element-my-overlay-image__overlay cms-element-my-overlay-image__overlay--{{ element.data.overlayPosition|default('center') }}">
+                {% if element.data.overlayText %}
                     <div class="cms-element-my-overlay-image__overlay-content">
-                        {{ element.config.overlayText.value|raw }}
+                        {{ element.data.overlayText|raw }}
                     </div>
                 {% endif %}
                 
-                {% if element.config.category.value %}
-                    <a href="{{ path('frontend.navigation.page', { navigationId: element.config.category.value }) }}"
-                       class="cms-element-my-overlay-image__button btn btn-primary">
-                        {{ element.config.buttonText.value|default('my-overlay-image.defaultButtonText'|trans|sw_sanitize) }}
+                {% if element.data.category %}
+                    {% set buttonStyle = element.data.buttonStyle|default(false) %}
+                    {% set buttonClass = buttonStyle ? 'cms-element-my-overlay-image__button--dark' : 'cms-element-my-overlay-image__button--light' %}
+                    <a href="{{ path('frontend.navigation.page', { navigationId: element.data.category }) }}"
+                       class="cms-element-my-overlay-image__button {{ buttonClass }}">
+                        {{ element.data.buttonText|default('my-overlay-image.defaultButtonText'|trans|sw_sanitize) }}
                     </a>
                 {% endif %}
             </div>

@@ -17,7 +17,7 @@ try {
                             :value="element.config.overlayPosition.value"
                             @update:value="onOverlayPositionInput"
                         />
-                        <sw-text-field
+                        <sw-text-editor
                             label="Tekst overlay"
                             :value="element.config.overlayText.value"
                             @update:value="onOverlayTextInput"
@@ -33,6 +33,12 @@ try {
                             label="Tekst przycisku"
                             :value="element.config.buttonText.value"
                             @update:value="onButtonTextInput"
+                        />
+                        <sw-single-select
+                            label="Styl przycisku"
+                            :options="buttonStyleOptions"
+                            :value="element.config.buttonStyle.value"
+                            @update:value="onButtonStyleInput"
                         />
                     </template>
                 </sw-cms-el-config-base>
@@ -57,6 +63,10 @@ try {
                     { value: 'bottom-left', label: 'Lewy dolny' },
                     { value: 'bottom-center', label: 'Dół, środek' },
                     { value: 'bottom-right', label: 'Prawy dolny' }
+                ],
+                buttonStyleOptions: [
+                    { value: false, label: 'Jasny' },
+                    { value: true, label: 'Ciemny' }
                 ]
             };
         },
@@ -81,7 +91,8 @@ try {
                                 overlayPosition: { source: 'static', value: 'center' },
                                 overlayText: { source: 'static', value: '' },
                                 buttonText: { source: 'static', value: 'Przejdź do kategorii' },
-                                category: { source: 'static', value: null, entity: { name: 'category' } }
+                                category: { source: 'static', value: null, entity: { name: 'category' } },
+                                buttonStyle: { source: 'static', value: false }
                             };
                             Object.keys(defaultConfig).forEach(key => {
                                 if (!newVal.config[key]) {
@@ -110,7 +121,8 @@ try {
                     overlayPosition: { source: 'static', value: 'center' },
                     overlayText: { source: 'static', value: '' },
                     buttonText: { source: 'static', value: 'Przejdź do kategorii' },
-                    category: { source: 'static', value: null, entity: { name: 'category' } }
+                    category: { source: 'static', value: null, entity: { name: 'category' } },
+                    buttonStyle: { source: 'static', value: false }
                 };
                 Object.keys(defaultConfig).forEach(key => {
                     if (!this.element.config[key]) {
@@ -144,6 +156,10 @@ try {
                 this.$set(this.element.config.category, 'value', value);
                 this.emitElementUpdate();
             },
+            onButtonStyleInput(value) {
+                this.$set(this.element.config.buttonStyle, 'value', value);
+                this.emitElementUpdate();
+            },
             emitElementUpdate() {
                 this.$emit('element-update', this.element);
             },
@@ -165,6 +181,9 @@ try {
                         return false;
                     }
                     if (!this.element.config.category) {
+                        return false;
+                    }
+                    if (!this.element.config.buttonStyle) {
                         return false;
                     }
                     return true;

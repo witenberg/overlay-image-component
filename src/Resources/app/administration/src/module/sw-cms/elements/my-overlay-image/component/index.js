@@ -36,6 +36,12 @@ Component.register('sw-cms-el-my-overlay-image', {
         categoryId() {
             return this.element?.config?.category?.value;
         },
+        buttonStyle() {
+            return this.element?.config?.buttonStyle?.value || false;
+        },
+        buttonClass() {
+            return this.buttonStyle ? 'my-overlay-image__button--dark' : 'my-overlay-image__button--light';
+        },
         showOverlay() {
             return this.overlayText || this.categoryId;
         },
@@ -117,6 +123,13 @@ Component.register('sw-cms-el-my-overlay-image', {
                 this.element.config.category = {
                     source: 'static',
                     value: null
+                };
+            }
+
+            if (!this.element.config.buttonStyle) {
+                this.element.config.buttonStyle = {
+                    source: 'static',
+                    value: false
                 };
             }
         },
