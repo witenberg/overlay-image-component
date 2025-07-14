@@ -1,5 +1,5 @@
 try {
-    console.log('[MyOverlayImage] Starting component registration');
+    // console.log('[MyOverlayImage] Starting component registration');
     
     Shopware.Component.register('sw-cms-el-config-my-overlay-image', {
         template: `
@@ -83,7 +83,7 @@ try {
                         try {
                             // Inicjalizacja config jako obiekt reaktywny
                             if (!newVal.config) {
-                                this.$set(newVal, 'config', {});
+                                newVal.config = {};
                             }
                             // Inicjalizacja każdego pola config jako obiekt reaktywny z value i source
                             const defaultConfig = {
@@ -96,11 +96,11 @@ try {
                             };
                             Object.keys(defaultConfig).forEach(key => {
                                 if (!newVal.config[key]) {
-                                    this.$set(newVal.config, key, {});
+                                    newVal.config[key] = {};
                                 }
                                 Object.keys(defaultConfig[key]).forEach(prop => {
                                     if (newVal.config[key][prop] === undefined) {
-                                        this.$set(newVal.config[key], prop, defaultConfig[key][prop]);
+                                        newVal.config[key][prop] = defaultConfig[key][prop];
                                     }
                                 });
                             });
@@ -126,38 +126,38 @@ try {
                 };
                 Object.keys(defaultConfig).forEach(key => {
                     if (!this.element.config[key]) {
-                        this.$set(this.element.config, key, {});
+                        this.element.config[key] = {};
                     }
                     Object.keys(defaultConfig[key]).forEach(prop => {
                         if (this.element.config[key][prop] === undefined) {
-                            this.$set(this.element.config[key], prop, defaultConfig[key][prop]);
+                            this.element.config[key][prop] = defaultConfig[key][prop];
                         }
                     });
                 });
             },
             onMediaInput(mediaId) {
-                console.log('[MyOverlayImage] onMediaInput', mediaId);
-                this.$set(this.element.config.media, 'value', mediaId);
+                // console.log('[MyOverlayImage] onMediaInput', mediaId);
+                this.element.config.media.value = mediaId;
                 this.emitElementUpdate();
             },
             onOverlayPositionInput(value) {
-                this.$set(this.element.config.overlayPosition, 'value', value);
+                this.element.config.overlayPosition.value = value;
                 this.emitElementUpdate();
             },
             onOverlayTextInput(value) {
-                this.$set(this.element.config.overlayText, 'value', value);
+                this.element.config.overlayText.value = value;
                 this.emitElementUpdate();
             },
             onButtonTextInput(value) {
-                this.$set(this.element.config.buttonText, 'value', value);
+                this.element.config.buttonText.value = value;
                 this.emitElementUpdate();
             },
             onCategoryInput(value) {
-                this.$set(this.element.config.category, 'value', value);
+                this.element.config.category.value = value;
                 this.emitElementUpdate();
             },
             onButtonStyleInput(value) {
-                this.$set(this.element.config.buttonStyle, 'value', value);
+                this.element.config.buttonStyle.value = value;
                 this.emitElementUpdate();
             },
             emitElementUpdate() {
@@ -193,7 +193,7 @@ try {
             }
         }
     });
-    console.log('[MyOverlayImage] Component registration completed');
+    // console.log('[MyOverlayImage] Component registration completed');
 } catch (e) {
     console.error('[MyOverlayImage] ERROR in component registration:', e);
 }

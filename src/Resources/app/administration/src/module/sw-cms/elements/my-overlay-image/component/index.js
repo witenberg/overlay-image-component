@@ -69,7 +69,7 @@ Component.register('sw-cms-el-my-overlay-image', {
         },
         element: {
             handler(newVal) {
-                console.log('[sw-cms-el-my-overlay-image] element changed:', JSON.parse(JSON.stringify(newVal)));
+                // console.log('[sw-cms-el-my-overlay-image] element changed:', JSON.parse(JSON.stringify(newVal)));
             },
             deep: true,
             immediate: true
@@ -82,7 +82,7 @@ Component.register('sw-cms-el-my-overlay-image', {
     },
 
     updated() {
-        console.log('[sw-cms-el-my-overlay-image] updated, element:', JSON.parse(JSON.stringify(this.element)));
+        // console.log('[sw-cms-el-my-overlay-image] updated, element:', JSON.parse(JSON.stringify(this.element)));
     },
 
     methods: {
@@ -167,7 +167,7 @@ Component.register('sw-cms-el-my-overlay-image', {
         },
         goToCategory() {
             if (this.categoryId) {
-                console.log('Navigate to category:', this.categoryId);
+                // console.log('Navigate to category:', this.categoryId);
             }
         }
     }
